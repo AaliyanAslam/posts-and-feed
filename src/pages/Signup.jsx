@@ -1,24 +1,28 @@
 import { useForm } from "react-hook-form";
+import {auth} from "../lib/firebase"
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const Signup= ()=>  {
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
-
-  console.log(watch("example")); // watch input value by passing the name of it
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const onSubmit = async (data) => {
+    const res = await createUserWithEmailAndPassword(auth, data.Email, data.Password)
+    console.log(res.user.email);
+  }
 
   return (
-    /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
+    <>
+    SIGN UP
+    
+    
     <form onSubmit={handleSubmit(onSubmit)}>
-      {/* register your input into the hook by invoking the "register" function */}
-      <input defaultValue="test" {...register("example")} />
+      <input defaultValue="" placeholder="Email"{...register("Email")} />
       
-      {/* include validation with required or other standard HTML validation rules */}
-      <input {...register("exampleRequired", { required: true })} />
-      {/* errors will return when field validation fails  */}
+      <input placeholder="Password"{...register("Password", { required: true })} />
       {errors.exampleRequired && <span>This field is required</span>}
       
       <input type="submit" />
     </form>
+    </>
   );
 }
 export default Signup
