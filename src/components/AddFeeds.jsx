@@ -1,11 +1,9 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { db } from '../lib/firebase';
-import { addDoc, collection , serverTimestamp } from 'firebase/firestore';
-import { useSelector } from 'react-redux';
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 
 const AddFeeds = () => {
- 
   const {
     register,
     handleSubmit,
@@ -14,8 +12,6 @@ const AddFeeds = () => {
 
   const onSubmit = async (data) => {
     try {
-      console.log(data);
-      
       await addDoc(collection(db, 'feeds'), {
         Title: data.Title,
         Description: data.Description,
@@ -28,35 +24,35 @@ const AddFeeds = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
-      <div className="bg-white shadow-lg rounded-2xl w-full max-w-md p-8">
-        <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">Add New Post</h1>
-        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+    <div className=" bg-gray-50 flex items-center justify-center px-2">
+      <div className="bg-white shadow-md rounded-xl w-full max-w-sm p-6">
+        <h1 className="text-2xl font-semibold text-center text-gray-800 mb-4">New Post</h1>
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3">
           <div>
-            <label className="block text-gray-600 mb-1">Enter Title</label>
             <input
-              type="title"
-              placeholder="Enter your Title"
+              type="text"
+              placeholder="Title"
               {...register('Title', { required: 'Title is required' })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
             />
-            {errors.Title && <span className="text-red-500 text-sm">{errors.Title.message}</span>}
+            {errors.Title && <p className="text-xs text-red-500 mt-1">{errors.Title.message}</p>}
           </div>
 
           <div>
-            <label className="block text-gray-600 mb-1">Enter Description</label>
             <input
-              type="Description"
+              type="text"
               placeholder="Description"
               {...register('Description', { required: 'Description is required' })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
             />
-            {errors.Description && <span className="text-red-500 text-sm">{errors.Description.message}</span>}
+            {errors.Description && (
+              <p className="text-xs text-red-500 mt-1">{errors.Description.message}</p>
+            )}
           </div>
 
           <button
             type="submit"
-            className="bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition-all"
+            className="bg-blue-600 text-white py-2 rounded-md text-sm hover:bg-blue-700 transition"
           >
             Post
           </button>
