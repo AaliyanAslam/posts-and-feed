@@ -1,10 +1,10 @@
 import React from 'react'
-import Feeds from '../components/feeds'
+import AddFeeds from '../components/AddFeeds'
 
 const Dashboard = () => {
   return (
     <>Dashboard
-    <Feeds/>
+    <AddFeeds/>
     
     </>
   )
