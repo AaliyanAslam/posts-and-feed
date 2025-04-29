@@ -2,8 +2,10 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { db } from '../lib/firebase';
 import { addDoc, collection , serverTimestamp } from 'firebase/firestore';
+import { useSelector } from 'react-redux';
 
 const AddFeeds = () => {
+ 
   const {
     register,
     handleSubmit,

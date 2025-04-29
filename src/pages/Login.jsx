@@ -2,14 +2,19 @@ import { useForm } from "react-hook-form";
 import {auth} from "../lib/firebase"
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "../config/redux/reducers/authSlice"
+
 
 const Login= ()=>  {
+const dispatch = useDispatch();
   const { register, handleSubmit, formState: { errors } } = useForm();
   const navigate = useNavigate();
   const onSubmit = async (data) => {
     try{
         const res = await signInWithEmailAndPassword(auth, data.Email, data.Password)
         console.log(res.user.email);
+     dispatch(addUser(res.user.email))
         alert("Login successful")
         navigate("/dashboard")
     }catch{
