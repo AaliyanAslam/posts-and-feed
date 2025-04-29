@@ -1,14 +1,17 @@
 import { useForm } from "react-hook-form";
 import {auth} from "../lib/firebase"
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
-const Signup= ()=>  {
+const Login= ()=>  {
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const navigate = useNavigate();
   const onSubmit = async (data) => {
     try{
         const res = await signInWithEmailAndPassword(auth, data.Email, data.Password)
         console.log(res.user.email);
         alert("Login successful")
+        navigate("/dashboard")
     }catch{
         alert("Invalid email or password")
     }
@@ -32,4 +35,4 @@ const Signup= ()=>  {
   </>
   );
 }
-export default Signup
+export default Login
