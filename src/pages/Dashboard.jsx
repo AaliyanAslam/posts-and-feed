@@ -34,7 +34,7 @@ useEffect(() => {
         <div className="flex items-center space-x-4">
           <span className="text-lg font-medium text-gray-600 dark:text-gray-300">
             Welcome, {getuser} 
-            <button onClick={handleLogout}>Logout</button>
+            <button className="btn bg-red-500 text-white hover:bg-red-400 " onClick={handleLogout}>Logout</button>
           </span>
         </div>
       </header>
