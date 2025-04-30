@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { db } from '../lib/firebase';
 import { collection, onSnapshot, query } from 'firebase/firestore';
-// import { limit } from 'firebase/firestore';
 
 const ShowFeeds = () => {
   const [postData, setPostData] = useState([]);
