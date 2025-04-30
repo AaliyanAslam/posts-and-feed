@@ -3,7 +3,7 @@ import React from 'react'
 const Loader = () => {
   return (
     <>
-    <span className="loading loading-spinner text-neutral"></span>
+    <span className="loading loading-spinner text-white"></span>
     
     </>
   )

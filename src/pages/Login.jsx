@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { addUser } from "../config/redux/reducers/authSlice";
 import Loader from "../components/Loader";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ const Login = () => {
       setError(false);
       const res = await signInWithEmailAndPassword(auth, data.Email, data.Password);
       dispatch(addUser(res.user.email));
-      alert("Login successful");
+      // alert("Login successful");
       navigate("/dashboard");
     } catch {
       setError(true);
@@ -74,6 +75,8 @@ const Login = () => {
             {loading ? <Loader /> : "Login"}
           </button>
         </form>
+        <Link to = "/signup" className="text-blue-600"> <div className="flex justify-center hover:underline cursor-pointer"><span className="text-black">Don't have an account :</span>  Signup</div></Link>
+
       </div>
     </div>
   );

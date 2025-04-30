@@ -1,33 +1,64 @@
-import React from 'react';
+import React , {useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { db } from '../lib/firebase';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+import Loader from './Loader';
+
 
 const AddFeeds = () => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+
+
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
 
   const onSubmit = async (data) => {
     try {
+      setLoading(true);
       await addDoc(collection(db, 'feeds'), {
         Title: data.Title,
         Description: data.Description,
         createdAt: serverTimestamp(),
       });
-      alert('Post added successfully!');
+      // alert('Post added successfully!');
+      setLoading(false);
+      document.getElementById('my_modal_3').close()
+      reset();
+      
     } catch (e) {
       alert('Error adding document: ' + e.message);
+      setError(true);
+    }finally{
+      setLoading(false);
+      // setError(false);
+      
     }
   };
 
+
+
   return (
-    <div className=" bg-gray-50 flex items-center justify-center px-2">
+
+    <>
+    {/* You can open the modal using document.getElementById('ID').showModal() method */}
+<button className="btn" onClick={()=>document.getElementById('my_modal_3').showModal()}>open modal</button>
+<dialog id="my_modal_3" className="modal">
+  <div className="modal-box">
+    <form method="dialog" className="flex flex-col gap-3">
+      {/* if there is a button in form, it will close the modal */}
+      <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+    </form>
+    
+    <h1 className="text-2xl font-semibold text-center text-gray-800 mb-4">Create Post</h1>
+    <div className="  flex items-center justify-center px-2">
       <div className="bg-white shadow-md rounded-xl w-full max-w-sm p-6">
-        <h1 className="text-2xl font-semibold text-center text-gray-800 mb-4">New Post</h1>
-        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3">
+     
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3"  >
           <div>
             <input
               type="text"
@@ -52,13 +83,20 @@ const AddFeeds = () => {
 
           <button
             type="submit"
-            className="bg-blue-600 text-white py-2 rounded-md text-sm hover:bg-blue-700 transition"
+            className="bg-blue-600 font-medium text-white py-2 rounded-md text-sm hover:bg-blue-700 transition"
           >
-            Post
+           {loading ? <Loader /> : 'Post'}
           </button>
+  
+    
         </form>
       </div>
     </div>
+  </div>
+</dialog>
+    
+    </>
+   
   );
 };
 
