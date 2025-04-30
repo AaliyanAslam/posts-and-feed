@@ -45,8 +45,11 @@ const AddFeeds = () => {
   return (
 
     <>
-    {/* You can open the modal using document.getElementById('ID').showModal() method */}
-<button className="btn" onClick={()=>document.getElementById('my_modal_3').showModal()}>open modal</button>
+<div className='flex items-center justify-center '>
+
+<button className="btn w-70 rounded-3xl md:w-150 lg:w-200 xl:w-250" onClick={()=>document.getElementById('my_modal_3').showModal()}>Ceate New Post</button>
+
+</div>
 <dialog id="my_modal_3" className="modal">
   <div className="modal-box">
     <form method="dialog" className="flex flex-col gap-3">
