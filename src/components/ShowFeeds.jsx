@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { db } from '../lib/firebase';
 import { collection, onSnapshot, query } from 'firebase/firestore';
-import { limit } from 'firebase/firestore';
+// import { limit } from 'firebase/firestore';
 
 const ShowFeeds = () => {
   const [postData, setPostData] = useState([]);
 
   useEffect(() => {
     const getFeeds = async () => {
-      const q = query(collection(db, 'feeds'), limit(10));
+      const q = query(collection(db, 'feeds'));
       onSnapshot(q, (querySnapshot) => {
         const feeds = [];
         querySnapshot.forEach((doc) => {
