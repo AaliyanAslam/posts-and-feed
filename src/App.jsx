@@ -1,7 +1,8 @@
-import Signup from './pages/Signup'
+
 import Login from './pages/Login'
 import { Route , Routes } from 'react-router-dom'
 import Dashboard from './pages/Dashboard'
+import Signup from './pages/signup'
 
 
 function App() {
