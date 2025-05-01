@@ -28,14 +28,12 @@ useEffect(() => {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
       {/* Header Section */}
       <header className="flex items-center justify-between p-6 bg-white dark:bg-gray-800 shadow-lg rounded-b-xl">
-        <h1 className="text-2xl font-bold text-gray-800 dark:text-white tracking-tight">
+        <div className="text-2xl font-bold text-gray-800 dark:text-white tracking-tight">
           Dashboard
-        </h1>
-        <div className="flex items-center space-x-4">
-          <span className="text-lg font-medium text-gray-600 dark:text-gray-300">
-            Welcome, {getuser} 
+        </div>
+            <div className="text-lg font-medium text-gray-600 dark:text-gray-300">Welcome, {getuser} </div>
+        <div>
             <button className="btn bg-red-500 text-white hover:bg-red-400 " onClick={handleLogout}>Logout</button>
-          </span>
         </div>
       </header>
 
