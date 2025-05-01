@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import AddFeeds from "../components/AddFeeds";
 import { useNavigate } from "react-router-dom";
-import ShowFeeds from "../components/showFeeds";
+import ShowFeeds from "../components/ShowFeeds";
 
 const Dashboard = () => {
   const user = useSelector((state) => state.auth.user);
