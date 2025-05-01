@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import AddFeeds from "../components/AddFeeds";
-import ShowFeeds from "../components/showFeeds";
+import ShowFeeds from "../components/ShowFeeds";
 import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
