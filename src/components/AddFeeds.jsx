@@ -47,13 +47,12 @@ const AddFeeds = () => {
     <>
 <div className='flex items-center justify-center '>
 
-<button className="btn w-70 rounded-3xl md:w-150 lg:w-200 xl:w-250" onClick={()=>document.getElementById('my_modal_3').showModal()}>Ceate New Post</button>
+<button className="btn w-70 text-gray-600 text-sm md:text-base lg:text-lg rounded-3xl md:w-150 lg:w-200 xl:w-250" onClick={()=>document.getElementById('my_modal_3').showModal()}>Create New Post</button>
 
 </div>
 <dialog id="my_modal_3" className="modal">
   <div className="modal-box">
     <form method="dialog" className="flex flex-col gap-3">
-      {/* if there is a button in form, it will close the modal */}
       <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
     </form>
     
