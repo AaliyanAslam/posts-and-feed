@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import AddFeeds from "../components/AddFeeds";
 import { useNavigate } from "react-router-dom";
 import ShowFeeds from "../components/ShowFeeds";
+// import { Navigate } from "react-router-dom";
 
 const Dashboard = () => {
   const user = useSelector((state) => state.auth.user);
@@ -18,7 +19,8 @@ const getUser = JSON.parse(localStorage.getItem("user"));
 
 const handleLogout = () => {
   localStorage.removeItem("user");
-  window.location.reload();
+  navigate("/");
+  // window.location.reload();
 }
 useEffect(() => {
   if (getUser === null) {
