@@ -45,7 +45,7 @@ const Login = () => {
               type="email"
               placeholder="Enter your email"
               {...register("Email", { required: "Email is required" })}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              className="w-full text-black px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
             />
             {errors.Email && (
               <span className="text-red-500 text-sm">{errors.Email.message}</span>
@@ -58,7 +58,7 @@ const Login = () => {
               type="password"
               placeholder="Enter your password"
               {...register("Password", { required: "Password is required" })}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              className="w-full text-black px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
             />
             {errors.Password && (
               <span className="text-red-500 text-sm">{errors.Password.message}</span>

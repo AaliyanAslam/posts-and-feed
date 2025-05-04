@@ -31,9 +31,9 @@ useEffect(() => {
 }, [user])
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
+    <div className="min-h-screen bg-white transition-colors duration-300">
       {/* Header Section */}
-      <header className="flex items-center justify-between p-4 bg-white dark:bg-gray-800 shadow-lg rounded-b-xl">
+      <header className="flex items-center justify-between p-4 bg-white shadow-lg rounded-b-xl">
         <div className="text-lg font-bold text-gray-800 dark:text-white tracking-tight">
           Chat <span className="text-blue-600">Book</span>
         </div>
@@ -44,11 +44,11 @@ useEffect(() => {
       </header>
 
       <main className="max-w-7xl mx-auto p-6 space-y-6">
-        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md animate-in">
+        <div className="bg-white p-6 rounded-xl shadow-md animate-in">
           <AddFeeds />
         </div>
 
-        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
+        <div className="bg-white p-6 rounded-xl shadow-md">
           <ShowFeeds />
         </div>
       </main>
