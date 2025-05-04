@@ -66,7 +66,7 @@ const AddFeeds = () => {
               type="text"
               placeholder="Title"
               {...register('Title', { required: 'Title is required' })}
-              className="w-full px-3 py-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
+              className="w-full text-black px-3 py-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
             />
             {errors.Title && <p className="text-xs text-red-500 mt-1">{errors.Title.message}</p>}
           </div>
@@ -76,7 +76,7 @@ const AddFeeds = () => {
               type="text"
               placeholder="Description"
               {...register('Description', { required: 'Description is required' })}
-              className="w-full px-3 py-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
+              className="w-full text-black px-3 py-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
             />
             {errors.Description && (
               <p className="text-xs text-red-500 mt-1">{errors.Description.message}</p>
